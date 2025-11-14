@@ -1,2 +1,2 @@
-# ATAD_project
-Project for IT UPT masters for ATAD.
+# Project ATAD - Personal Finance CLI Manager
+*insert architecture*
