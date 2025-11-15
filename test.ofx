@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OFX>
+  <SIGNONMSGSRSV1>
+    <SONRS>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <DTSERVER>20251115120000</DTSERVER>
+      <LANGUAGE>ENG</LANGUAGE>
+    </SONRS>
+  </SIGNONMSGSRSV1>
+
+  <BANKMSGSRSV1>
+    <STMTTRNRS>
+      <TRNUID>1001</TRNUID>
+      <STATUS>
+        <CODE>0</CODE>
+        <SEVERITY>INFO</SEVERITY>
+      </STATUS>
+      <STMTRS>
+        <CURDEF>USD</CURDEF>
+        <BANKACCTFROM>
+          <BANKID>123456789</BANKID>
+          <ACCTID>987654321</ACCTID>
+          <ACCTTYPE>CHECKING</ACCTTYPE>
+        </BANKACCTFROM>
+        <BANKTRANLIST>
+          <DTSTART>20251101000000</DTSTART>
+          <DTEND>20251115000000</DTEND>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251101090000</DTPOSTED>
+            <TRNAMT>-50.75</TRNAMT>
+            <FITID>10001</FITID>
+            <NAME>Grocery Store</NAME>
+            <MEMO>Weekly groceries</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251105120000</DTPOSTED>
+            <TRNAMT>1500.00</TRNAMT>
+            <FITID>10002</FITID>
+            <NAME>Salary</NAME>
+            <MEMO>November Salary</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251110080000</DTPOSTED>
+            <TRNAMT>-120.00</TRNAMT>
+            <FITID>10003</FITID>
+            <NAME>Electricity Bill</NAME>
+            <MEMO>October</MEMO>
+          </STMTTRN>
+
+        </BANKTRANLIST>
+      </STMTRS>
+    </STMTTRNRS>
+  </BANKMSGSRSV1>
+</OFX>

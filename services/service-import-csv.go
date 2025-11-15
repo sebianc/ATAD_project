@@ -9,8 +9,6 @@ import (
 	"github.com/gocarina/gocsv"
 )
 
-// TODO: add variation for OFX format !!!!!
-
 // function to import CSV file
 func ImportCSV(filePath string) ([]*models.Transaction, error) {
 	file, err := os.OpenFile(filePath, os.O_RDONLY, os.ModePerm)

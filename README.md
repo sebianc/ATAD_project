@@ -23,8 +23,8 @@ Available commands:
 
 | Command | Description
 |---------|------------
-| `atad-cli import <file>` | Imports a CSV file and displays the output formatted as a table.
-| `atad-cli add <file>` | Imports the CSV file, adds the content to the database and displays the database content as a table.
+| `atad-cli import <file>` | Imports a CSV/OFX(XML FORMAT) file and displays the output formatted as a table.
+| `atad-cli add <file>` | Imports the CSV/OFX(XML FORMAT) file, adds the content to the database and displays the database content as a table.
 
 **Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
 
@@ -49,7 +49,7 @@ graph TD
 
 **Note: architecture might change in the future due to implementation of new features**
 
-**Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment. please do not judge this choice**
+**Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment**
 
 
 
