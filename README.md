@@ -44,7 +44,7 @@ graph TD
     Services --> Categorization[Transaction Categorization]
     Services --> BudgetManager[Budget Tracking & Alerts]
     Services --> ReportGen[Report Generation: Monthly, Category Breakdown]
-    Services --> CLI Utils[Services used by multiple sources]
+    Services --> CLIUtils[CLI Utils: Services used by multiple sources]
 ```
 
 **Note: architecture might change in the future due to implementation of new features**
