@@ -28,6 +28,7 @@ Available commands:
 
 **Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
 
+**Note2: maybe the display from add command should be removed due to the size of the DB bcs if the db is big it will confuse the user by having a big table in the cmd line**
 
 ## System Architecture
 
