@@ -46,8 +46,8 @@ graph TD
     Services --> ReportGen[Report Generation: Monthly, Category Breakdown]
 ```
 
-
-
+**Note: architecture might change in the future due to implementation of new features**
+**Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment. please do not judge this choice**
 
 
 
