@@ -1,5 +1,11 @@
 # Project: Personal Finance CLI Manager
 
+## Description
+
+This project represents a command-line tool for tracking personal income and expenses. Import transactions from
+bank statements, categorize them automatically, set budgets, and generate insightful reports—
+all from your terminal.
+
 ## User Stories
 
 | Feature / User Story | Status |
