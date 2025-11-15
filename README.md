@@ -1,2 +1,47 @@
-# Project ATAD - Personal Finance CLI Manager
-*insert architecture*
+# Project: Personal Finance CLI Manager
+
+## User Stories
+
+| Feature / User Story | Status |
+|---------------------|--------|
+| As a user, I can import transactions from CSV/OFX files | ✅ |
+| As a user, I can manually add income and expenses | ✅ |
+| As a user, I can categorize transactions automatically | ❌ |
+| As a user, I can set budgets per category and get alerts | ❌ |
+| As a user, I can generate reports (monthly spending, category breakdown) | ❌ |
+| As a user, I can search and filter transactions | ❌ |
+
+## Usage
+
+Available commands:
+
+| Command | Description
+|---------|------------
+| `atad-cli import <file>` | Imports a CSV file and displays the output formatted as a table.
+| `atad-cli add <file>` | Imports the CSV file, adds the content to the database and displays the database content as a table.
+
+**Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
+
+
+## System Architecture
+
+```mermaid
+graph TD
+    User[Terminal / User] -->|CLI command input: import, add, report, budget, search| CLI[Cobra CLI - cmd package]
+    CLI --> Services[Services Layer - services package]
+    Services -->|Queries / Inserts / Computation| DB[Database Layer - SQLite db/ folder]
+    DB --> Services
+    Services --> Output[Output / UI]
+
+    %% Services Details (without special characters)
+    Services --> Parser[CSV / OFX Parser]
+    Services --> Categorization[Transaction Categorization]
+    Services --> BudgetManager[Budget Tracking & Alerts]
+    Services --> ReportGen[Report Generation: Monthly, Category Breakdown]
+```
+
+
+
+
+
+
