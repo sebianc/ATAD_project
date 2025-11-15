@@ -1,0 +1,93 @@
+package services
+
+import (
+	"database/sql"
+	"fmt"
+	"log"
+	"os"
+	"sync"
+
+	"atad_project/models"
+
+	"github.com/olekukonko/tablewriter"
+
+	_ "modernc.org/sqlite"
+)
+
+var db *sql.DB
+var once sync.Once
+var db_path string = "db/atad_project.db"
+
+// TODO: function to initialize the database if not exists
+// TODO: error handling better maybe
+
+// function to get db instance
+func InitDB() *sql.DB {
+	once.Do(func() {
+		var err error
+		db, err = sql.Open("sqlite", db_path)
+		if err != nil {
+			log.Fatal(err)
+		}
+	})
+	return db
+}
+
+// function used to add multiple transactions to db
+func AddTransactions(transactions []*models.Transaction) error {
+	db := InitDB()
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+	stmt, err := tx.Prepare("INSERT INTO transactions (date, amount, description, category) VALUES (?, ?, ?, ?)")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+
+	for _, t := range transactions {
+		_, err := stmt.Exec(t.DATE, t.AMOUNT, t.DESCRIPTION, t.CATEGORY)
+		if err != nil {
+			tx.Rollback()
+			return err
+		}
+	}
+
+	return tx.Commit()
+}
+
+// function to pretty print the content of the db
+func PrintDBTransactions() ([]*models.Transaction, error) {
+	db := InitDB()
+	rows, err := db.Query("SELECT date, amount, description, category FROM transactions")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var transactions []*models.Transaction
+	// prepare table writer
+	table := tablewriter.NewWriter(os.Stdout)
+	table.Header([]string{"Date", "Amount", "Description", "Category"})
+
+	for rows.Next() {
+		var t models.Transaction
+		err := rows.Scan(&t.DATE, &t.AMOUNT, &t.DESCRIPTION, &t.CATEGORY)
+		if err != nil {
+			return nil, err
+		}
+		transactions = append(transactions, &t)
+		// append row to table
+		table.Append([]string{
+			t.DATE,
+			fmt.Sprintf("%.2f", t.AMOUNT),
+			t.DESCRIPTION,
+			t.CATEGORY,
+		})
+	}
+
+	// render table to stdout
+	table.Render()
+
+	return transactions, nil
+}
