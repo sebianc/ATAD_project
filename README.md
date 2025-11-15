@@ -33,9 +33,9 @@ Available commands:
 
 ```mermaid
 graph TD
-    User[Terminal / User] -->|CLI command input: import, add, report, budget, search| CLI[Cobra CLI - cmd package]
+    User[Terminal / User] -->|CLI commands: import, add, report, budget, search| CLI[Cobra CLI - cmd package]
     CLI --> Services[Services Layer - services package]
-    Services -->|Queries / Inserts / Computation| DB[Database Layer - SQLite db/ folder]
+    Services --> DB[Database Layer - SQLite db/ folder]
     DB --> Services
     Services --> Output[Output / UI]
 
