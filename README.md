@@ -51,5 +51,6 @@ graph TD
 
 **Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment**
 
+**Note3: the db right now has DATE as TEXT format might/should change it in the future**
 
 
