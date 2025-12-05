@@ -91,3 +91,23 @@ func PrintDBTransactions() ([]*models.Transaction, error) {
 
 	return transactions, nil
 }
+
+// function to get all transactions from db in a list format
+func GetAllTransactions() ([]*models.Transaction, error) {
+	db := InitDB()
+	rows, err := db.Query("SELECT date, amount, description, category FROM transactions")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var transactions []*models.Transaction
+	for rows.Next() {
+		var t models.Transaction
+		err := rows.Scan(&t.DATE, &t.AMOUNT, &t.DESCRIPTION, &t.CATEGORY)
+		if err != nil {
+			return nil, err
+		}
+		transactions = append(transactions, &t)
+	}
+	return transactions, nil
+}
