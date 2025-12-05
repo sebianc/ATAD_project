@@ -28,6 +28,7 @@ Available commands:
 
 **Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
 
+**Note2: maybe the display from add command should be removed due to the size of the DB bcs if the db is big it will confuse the user by having a big table in the cmd line**
 
 ## System Architecture
 
@@ -51,5 +52,6 @@ graph TD
 
 **Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment**
 
+**Note3: the db right now has DATE as TEXT format might/should change it in the future**
 
 
