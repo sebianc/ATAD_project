@@ -33,6 +33,16 @@ func InitDB() *sql.DB {
 	return db
 }
 
+// function to detect category
+func DetectCategory(desc string) string {
+	for category, regex := range models.CategoryRules {
+		if regex.MatchString(desc) {
+			return category
+		}
+	}
+	return "Other"
+}
+
 // function used to add multiple transactions to db
 func AddTransactions(transactions []*models.Transaction) error {
 	db := InitDB()
@@ -47,6 +57,7 @@ func AddTransactions(transactions []*models.Transaction) error {
 	defer stmt.Close()
 
 	for _, t := range transactions {
+		t.CATEGORY = DetectCategory(t.DESCRIPTION)
 		_, err := stmt.Exec(t.DATE, t.AMOUNT, t.DESCRIPTION, t.CATEGORY)
 		if err != nil {
 			tx.Rollback()

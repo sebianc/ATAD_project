@@ -6,14 +6,14 @@
         <CODE>0</CODE>
         <SEVERITY>INFO</SEVERITY>
       </STATUS>
-      <DTSERVER>20251115120000</DTSERVER>
+      <DTSERVER>20251201120000</DTSERVER>
       <LANGUAGE>ENG</LANGUAGE>
     </SONRS>
   </SIGNONMSGSRSV1>
 
   <BANKMSGSRSV1>
     <STMTTRNRS>
-      <TRNUID>1001</TRNUID>
+      <TRNUID>2001</TRNUID>
       <STATUS>
         <CODE>0</CODE>
         <SEVERITY>INFO</SEVERITY>
@@ -21,39 +21,103 @@
       <STMTRS>
         <CURDEF>USD</CURDEF>
         <BANKACCTFROM>
-          <BANKID>123456789</BANKID>
-          <ACCTID>987654321</ACCTID>
+          <BANKID>000112345</BANKID>
+          <ACCTID>5566778899</ACCTID>
           <ACCTTYPE>CHECKING</ACCTTYPE>
         </BANKACCTFROM>
+
         <BANKTRANLIST>
-          <DTSTART>20251101000000</DTSTART>
-          <DTEND>20251115000000</DTEND>
+          <DTSTART>20251201000000</DTSTART>
+          <DTEND>20251215120000</DTEND>
 
           <STMTTRN>
             <TRNTYPE>DEBIT</TRNTYPE>
-            <DTPOSTED>20251101090000</DTPOSTED>
-            <TRNAMT>-50.75</TRNAMT>
-            <FITID>10001</FITID>
-            <NAME>Grocery Store</NAME>
-            <MEMO>Weekly groceries</MEMO>
+            <DTPOSTED>20251201100000</DTPOSTED>
+            <TRNAMT>-25.40</TRNAMT>
+            <FITID>20001</FITID>
+            <NAME>Starbucks Coffee</NAME>
+            <MEMO>Latte + Sandwich</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251202130000</DTPOSTED>
+            <TRNAMT>-85.99</TRNAMT>
+            <FITID>20002</FITID>
+            <NAME>Amazon Marketplace</NAME>
+            <MEMO>Electronics accessory</MEMO>
           </STMTTRN>
 
           <STMTTRN>
             <TRNTYPE>CREDIT</TRNTYPE>
-            <DTPOSTED>20251105120000</DTPOSTED>
-            <TRNAMT>1500.00</TRNAMT>
-            <FITID>10002</FITID>
+            <DTPOSTED>20251203110000</DTPOSTED>
+            <TRNAMT>3100.00</TRNAMT>
+            <FITID>20003</FITID>
             <NAME>Salary</NAME>
-            <MEMO>November Salary</MEMO>
+            <MEMO>December salary</MEMO>
           </STMTTRN>
 
           <STMTTRN>
             <TRNTYPE>DEBIT</TRNTYPE>
-            <DTPOSTED>20251110080000</DTPOSTED>
+            <DTPOSTED>20251204070000</DTPOSTED>
+            <TRNAMT>-59.00</TRNAMT>
+            <FITID>20004</FITID>
+            <NAME>Netflix Subscription</NAME>
+            <MEMO>Monthly plan</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251205120000</DTPOSTED>
+            <TRNAMT>-94.30</TRNAMT>
+            <FITID>20005</FITID>
+            <NAME>Lidl Supermarket</NAME>
+            <MEMO>Groceries</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251206090000</DTPOSTED>
             <TRNAMT>-120.00</TRNAMT>
-            <FITID>10003</FITID>
-            <NAME>Electricity Bill</NAME>
-            <MEMO>October</MEMO>
+            <FITID>20006</FITID>
+            <NAME>ENEL Energy</NAME>
+            <MEMO>Electricity bill</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251207150000</DTPOSTED>
+            <TRNAMT>-12.50</TRNAMT>
+            <FITID>20007</FITID>
+            <NAME>Pharmacy</NAME>
+            <MEMO>Medicine</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251208120000</DTPOSTED>
+            <TRNAMT>-35.00</TRNAMT>
+            <FITID>20008</FITID>
+            <NAME>Gym Center</NAME>
+            <MEMO>Membership</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>CREDIT</TRNTYPE>
+            <DTPOSTED>20251209100000</DTPOSTED>
+            <TRNAMT>30.00</TRNAMT>
+            <FITID>20009</FITID>
+            <NAME>Amazon Refund</NAME>
+            <MEMO>Returned item</MEMO>
+          </STMTTRN>
+
+          <STMTTRN>
+            <TRNTYPE>DEBIT</TRNTYPE>
+            <DTPOSTED>20251210140000</DTPOSTED>
+            <TRNAMT>-140.00</TRNAMT>
+            <FITID>20010</FITID>
+            <NAME>Hotel Booking</NAME>
+            <MEMO>Holiday trip</MEMO>
           </STMTTRN>
 
         </BANKTRANLIST>

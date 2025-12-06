@@ -1,6 +1,12 @@
-date,amount,description,category
-2025-11-01,1200.00,Salary,Income
-2025-11-05,-45.50,Coffee shop,Food & Drink
-2025-11-10,-150.00,Electricity bill,Utilities
-2025-11-12,-20.00,"Taxi, downtown",Transport
-2025-11-22,200.00,Freelance project,Income
+date,amount,description
+2025-01-05, -45.90, Lidl supermarket shopping
+2025-01-06, -12.50, Coffee Shop Starbucks
+2025-01-07, -80.00, Uber ride airport transfer
+2025-01-08, -230.00, ENEL electricity bill
+2025-01-09, -15.00, Pharmacy medicine purchase
+2025-01-10, -59.99, Netflix monthly subscription
+2025-01-11, -280.00, Zara clothing store
+2025-01-12, -25.00, Gym monthly membership
+2025-01-13,  3000.00, Salary monthly payment
+2025-01-14, -150.00, Hotel booking deposit
+2025-01-15,  55.00, Refund from Amazon order
