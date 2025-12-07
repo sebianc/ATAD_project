@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"sync"
 
@@ -121,4 +122,35 @@ func GetAllTransactions() ([]*models.Transaction, error) {
 		transactions = append(transactions, &t)
 	}
 	return transactions, nil
+}
+
+// function to set budget
+func SetBudget(db *sql.DB, category string, limit float64) error {
+	_, err := db.Exec(`
+    INSERT INTO budgets (category, budget_limit)
+    VALUES (?, ?)
+    ON CONFLICT(category) DO UPDATE SET budget_limit = excluded.budget_limit;
+`, category, limit)
+
+	return err
+}
+
+// function to get spendings per category
+func GetSpentByCategory(db *sql.DB, category string) (float64, error) {
+	var spent float64
+	err := db.QueryRow(`
+        SELECT COALESCE(SUM(AMOUNT), 0) 
+        FROM transactions 
+        WHERE CATEGORY = ? AND AMOUNT < 0
+    `, category).Scan(&spent)
+	return math.Abs(spent), err
+}
+
+// function to get budget limit per category
+func GetBudget(db *sql.DB, category string) (float64, error) {
+	var limit float64
+	err := db.QueryRow(`
+        SELECT budget_limit FROM budgets WHERE category = ?
+    `, category).Scan(&limit)
+	return limit, err
 }
