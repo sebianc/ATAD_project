@@ -11,7 +11,6 @@ import (
 	"atad_project/models"
 
 	"github.com/olekukonko/tablewriter"
-
 	_ "modernc.org/sqlite"
 )
 
