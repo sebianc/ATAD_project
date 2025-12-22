@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// report command definition and behavior
+// it will take as an input the year and month in the format YYYY-MM and generate a monthly spending report
 var reportCmd = &cobra.Command{
 	Use:   "report <YYYY-MM>",
 	Short: "Generate monthly spending report",

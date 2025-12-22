@@ -8,6 +8,7 @@ import (
 	"github.com/guptarohit/asciigraph"
 )
 
+// function to get monthly spending data for a given month and year in ASCII format
 func GetMonthlySpendingASCII(db *sql.DB, year int, month int) ([]float64, error) {
 	query := `
 		SELECT DATE, AMOUNT
@@ -21,7 +22,7 @@ func GetMonthlySpendingASCII(db *sql.DB, year int, month int) ([]float64, error)
 	}
 	defer rows.Close()
 
-	// Max 31 zile
+	// 31 days in a month
 	daily := make([]float64, 31)
 
 	for rows.Next() {
@@ -30,12 +31,13 @@ func GetMonthlySpendingASCII(db *sql.DB, year int, month int) ([]float64, error)
 		rows.Scan(&date, &amount)
 
 		day, _ := strconv.Atoi(date[8:10])
-		daily[day-1] += -amount // transformăm în valoare pozitivă
+		daily[day-1] += -amount // convert to positive values
 	}
 
 	return daily, nil
 }
 
+// function to print monthly spending as a line chart in ASCII using asciigraph library
 func PrintMonthlySpendingChart(values []float64, year int, month int) {
 	graph := asciigraph.Plot(
 		values,

@@ -56,11 +56,12 @@ var addCmd = &cobra.Command{
 		fmt.Printf("Added %d transactions to the database successfully!\n", len(transactions))
 		services.PrintDBTransactions()
 
+		// check for budget alerts after we add transactions from csv/ofx
 		db := services.InitDB()
 		alerts, _ := services.CheckBudgetAlerts(db)
 		for _, a := range alerts {
 			if a.Level != "OK" {
-				fmt.Printf("[BUDGET ALERT] %s: %.1f%% spent\n", a.Category, a.Percent)
+				fmt.Printf("BUDGET ALERT %s: %.1f%% spent\n", a.Category, a.Percent)
 			}
 		}
 

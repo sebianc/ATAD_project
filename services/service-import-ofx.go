@@ -46,7 +46,7 @@ func ImportOFX(filePath string) ([]*models.Transaction, error) {
 		if len(raw) < 8 {
 			return raw
 		}
-		t, err := time.Parse("20060102", raw[:8])
+		t, err := time.Parse("20060102", raw[:8]) // 20060102 is the default value for parsing dates in Go
 		if err != nil {
 			return raw
 		}

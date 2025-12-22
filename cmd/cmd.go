@@ -6,6 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// main command definition and behavior
 var mainCmd = &cobra.Command{
 	Use:   "atad-cli",
 	Short: "A CLI tool to track personal income and expenses",

@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// breakdown command definition and behavior
+// it will take as an input the year and month in the format YYYY-MM and generate a category breakdown report
 var breakdownCmd = &cobra.Command{
 	Use:   "breakdown <YYYY-MM>",
 	Short: "Generate category breakdown report",

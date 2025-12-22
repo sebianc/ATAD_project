@@ -2,6 +2,7 @@ package models
 
 import "regexp"
 
+// predefined category rules using regex patterns
 var CategoryRules = map[string]*regexp.Regexp{
 	"Groceries":          regexp.MustCompile(`(?i)(kaufland|carrefour|lidl|profi|mega|supermarket|walmart|tesco|sainsbury|asda|aldi|grocery|market|food\sstore)`),
 	"Dining":             regexp.MustCompile(`(?i)(kfc|mcdo|mcdonald|pizza|restaurant|bistro|grill|burger|cafe|coffee|bar|pub|lunch|dinner|takeout|fast\s?food|steakhouse|diner)`),

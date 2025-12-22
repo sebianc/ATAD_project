@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// budget command definition and behavior
+// it will take as an input the category and limit amount to set a budget for that category. the alerts will be checked immediately and it can be either OK or >=90% warning or >=100% alert
 var budgetSetCmd = &cobra.Command{
 	Use:   "budget <category> <limit>",
 	Short: "Set a budget limit for a specific category",
@@ -33,7 +35,7 @@ var budgetSetCmd = &cobra.Command{
 		alerts, _ := services.CheckBudgetAlerts(db)
 		for _, a := range alerts {
 			if a.Level != "OK" {
-				fmt.Printf("[BUDGET ALERT] %s: %.1f%% spent\n", a.Category, a.Percent)
+				fmt.Printf("BUDGET ALERT %s: %.1f%% spent\n", a.Category, a.Percent)
 			}
 		}
 		return nil

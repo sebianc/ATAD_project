@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// function to get category breakdown for a given month and year in ASCII format
 func GetCategoryBreakdownASCII(db *sql.DB, year int, month int) (map[string]float64, error) {
 	query := `
 		SELECT CATEGORY, SUM(AMOUNT)
@@ -33,6 +34,7 @@ func GetCategoryBreakdownASCII(db *sql.DB, year int, month int) (map[string]floa
 	return result, nil
 }
 
+// function to print category breakdown as a bar chart in ASCII
 func PrintCategoryBarChart(data map[string]float64) {
 	maxWidth := 40
 
