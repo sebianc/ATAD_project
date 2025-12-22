@@ -1,14 +1,16 @@
 package services
 
 import (
+	"atad_project/models"
 	"database/sql"
 	"fmt"
 	"log"
 	"math"
 	"os"
+	"strconv"
+	"strings"
 	"sync"
-
-	"atad_project/models"
+	"time"
 
 	"github.com/olekukonko/tablewriter"
 	_ "modernc.org/sqlite"
@@ -152,4 +154,45 @@ func GetBudget(db *sql.DB, category string) (float64, error) {
         SELECT budget_limit FROM budgets WHERE category = ?
     `, category).Scan(&limit)
 	return limit, err
+}
+
+// function to parse manual input for adding transaction and add it to db
+func ParseManualTransaction(
+	dateStr string,
+	amountStr string,
+	category string,
+	descriptionParts ...string,
+) ([]*models.Transaction, error) {
+
+	// validate date
+	if _, err := time.Parse("2006-01-02", dateStr); err != nil {
+		return nil, fmt.Errorf("invalid date format, use YYYY-MM-DD")
+	}
+
+	// parse amount
+	amount, err := strconv.ParseFloat(amountStr, 64)
+	if err != nil {
+		return nil, fmt.Errorf("invalid amount: %s", amountStr)
+	}
+	if amount == 0 {
+		return nil, fmt.Errorf("amount must be non-zero")
+	}
+
+	if len(descriptionParts) == 0 {
+		return nil, fmt.Errorf("description is required")
+	}
+
+	// normalize description
+	desc := strings.Join(descriptionParts, " ")
+	desc = strings.ReplaceAll(desc, "-", " ")
+	desc = strings.Join(strings.Fields(desc), " ")
+
+	tx := &models.Transaction{
+		DATE:        dateStr,
+		AMOUNT:      amount,
+		DESCRIPTION: desc,
+		CATEGORY:    category,
+	}
+
+	return []*models.Transaction{tx}, nil
 }
