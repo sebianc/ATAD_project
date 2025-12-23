@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// browse command definition and behavior
+// it will launch an interactive TUI to browse transactions with 3 filtering options
 var browseCmd = &cobra.Command{
 	Use:   "browse",
 	Short: "Browse transactions in an interactive TUI",
