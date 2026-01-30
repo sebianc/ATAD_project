@@ -28,7 +28,7 @@ Available commands:
 | `atad-cli add manual/m <date> <amount> <description>` | Manually add income/expense.
 | `atad-cli budget <category> <limit>` | Use the category and limit amount to set a budget for that category. The alerts will be checked immediately and it can be either OK or >=90% WARNING or >=100% ALERT.
 | `atad-cli report <YYYY-MM>` | Create a day-by-day graphical report based on the year and month given in the format YYYY-MM.
-| `atad-cli breakdown <YYYY-MM>` | Create a monthly breakdown report with the year and month in the format YYYY-MM.
+| `atad-cli breakdown <YYYY-MM>` | Create a monthly breakdown report to see spending on categories based on the year and month given in the format YYYY-MM.
 | `atad-cli browse` | Launch an interactive TUI to browse transactions with 3 filtering options: 1=YYYY-MM, 2=Description, 3=Category.
 
 **Categorization is done automatically based on regex expressions found in Models/rules.go such as:** 
