@@ -12,10 +12,10 @@ all from your terminal.
 |---------------------|--------|
 | As a user, I can import transactions from CSV/OFX files | ✅ |
 | As a user, I can manually add income and expenses | ✅ |
-| As a user, I can categorize transactions automatically | ❌ |
-| As a user, I can set budgets per category and get alerts | ❌ |
-| As a user, I can generate reports (monthly spending, category breakdown) | ❌ |
-| As a user, I can search and filter transactions | ❌ |
+| As a user, I can categorize transactions automatically | ✅ |
+| As a user, I can set budgets per category and get alerts | ✅ |
+| As a user, I can generate reports (monthly spending, category breakdown) | ✅ |
+| As a user, I can search and filter transactions | ✅ |
 
 ## Usage
 
