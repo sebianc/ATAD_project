@@ -52,7 +52,7 @@ graph TD
     Services --> CLIUtils[Service used by multiple components]
     Services --> BudgetService[Set budget per category by adding a limit and get warnings]
 ```
-
+```text
 cmd/ -> commands folder
 ├── root.go -> main command of CLI app, used to init and load all subcmds
 ├── add.go -> command used to add expenses, either manually or imported from csv/ofx
@@ -61,13 +61,16 @@ cmd/ -> commands folder
 ├── breakdown.go -> command used to generate a monthly breakdown report based on a YYYY-MM input date format
 └── budget.go -> command used to limit the budget per categories and get warnings when its over 90% and alerts over 100%
 
+
 db/ -> local db folder
 └── atad_project.db -> local sql db to store expenses under the format: transactions (date, amount, description, category) and budget limits under the format: budgets (category, budget_limit)
+
 
 models/ -> models folder
 ├── budget.go -> budget struct containing the id, category and limit
 ├── rules.go -> ruleset map used for auto-categorization based on regex, used on description to filter to right category e.g Pets:(pet|vet|veterinary|dog|cat|petfood|grooming|petshop)
 └── transaction.go -> transaction struct used for CSV/OFX manipulation containing date, amount, description, category
+
 
 services/ -> services folder, actual implementation of services used in commands
 ├── service-breakdown.go -> breakdown command implementation based on a visual representation of each category spending from a given month, in ASCII format using █ character
@@ -79,11 +82,13 @@ services/ -> services folder, actual implementation of services used in commands
 ├── service-import-ofx.go -> import command implementation for OFX files in an XML format
 └── service-report.go -> report command implementation, focused on using the asciigraph library to graphicaly represent a monthly spending report
 
+
 README.md -> readme file
 go.mod -> project dependencies
 go.sum -> check integrity of project dependencies
 main.go -> application entry point, launches cmd.execute() to start from root.go
 test.csv -> file used to test import csv implementation
 test.ofx -> file used to test import ofx implementation
+```
 
 
