@@ -30,32 +30,28 @@ Available commands:
 | `atad-cli breakdown <YYYY-MM>` | Create a monthly breakdown report with the year and month in the format YYYY-MM.
 | `atad-cli browse` | Launch an interactive TUI to browse transactions with 3 filtering options: 1=YYYY-MM, 2=Description, 3=Category.
 
-**Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
-
-**Note2: maybe the display from add command should be removed due to the size of the DB bcs if the db is big it will confuse the user by having a big table in the cmd line**
+**Categorization is done automatically based on regex expressions found in Models/rules.go such as:** 
+**"Groceries": regexp.MustCompile(`(?i)(kaufland|carrefour|lidl|profi|mega|supermarket|walmart|tesco|sainsbury|asda|aldi|grocery|market|food\sstore)`)**
 
 ## System Architecture
 
 ```mermaid
 graph TD
-    User[Terminal / User] -->|CLI commands: import, add, report, budget, search| CLI[Cobra CLI - cmd package]
+    User[Terminal / User] -->|CLI commands: import, add, breakdown, browse, budget| CLI[Cobra CLI - cmd package]
     CLI --> Services[Services Layer - services package]
     Services --> DB[Database Layer - SQLite db/ folder]
     DB --> Services
     Services --> Output[Output / UI]
 
     %% Services Details (without special characters)
-    Services --> Parser[CSV / OFX Parser]
-    Services --> Categorization[Transaction Categorization]
-    Services --> BudgetManager[Budget Tracking & Alerts]
-    Services --> ReportGen[Report Generation: Monthly, Category Breakdown]
-    Services --> CLIUtils[CLI Utils: Services used by multiple sources]
+    Services --> ImportService[OFX & CSV]
+    Services --> BrosweTUIService[Database Filtering in TUI]
+    Services --> AddService[Manual or CSV/OFX File]
+    Services --> BreakdownService[Report Generation based on YYYY-MM]
+    Services --> CLIUtils[Service used by multiple components]
+    Services --> BudgetService[Set budget per category by adding a limit and get warnings]
 ```
 
-**Note: architecture might change in the future due to implementation of new features**
 
-**Note2: i KNOW uploading the db is not the way it's just for testing purposes at the moment**
-
-**Note3: the db right now has DATE as TEXT format might/should change it in the future**
 
 
