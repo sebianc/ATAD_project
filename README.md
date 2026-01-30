@@ -48,7 +48,8 @@ graph TD
     Services --> ImportService[OFX & CSV]
     Services --> BrosweTUIService[Database Filtering in TUI]
     Services --> AddService[Manual or CSV/OFX File]
-    Services --> BreakdownService[Report Generation based on YYYY-MM]
+    Services --> BreakdownService[Category breakdown spendings for YYYY-MM]
+    Services --> ReportService[Monthly spending day-by-day report for YYYY-MM]
     Services --> CLIUtils[Service used by multiple components]
     Services --> BudgetService[Set budget per category by adding a limit and get warnings]
 ```
