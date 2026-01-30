@@ -16,8 +16,8 @@ var addCmd = &cobra.Command{
 	Use:   "add (file/f <file> | manual/m <date amount description...>)",
 	Short: "Add transactions from a file or add one manually",
 	Long: `The add command adds transactions to the database in two ways:
-	- From a CSV or OFX (XML) file using --file / -f
-	- Manually adding a single income or expense using --manual / -m
+	- From a CSV or OFX (XML) file using f
+	- Manually adding a single income or expense using m
 
 	After adding, all transactions are displayed and budget alerts are checked.`,
 	Args: cobra.MinimumNArgs(2),
