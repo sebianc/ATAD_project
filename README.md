@@ -31,6 +31,8 @@ Available commands:
 | `atad-cli breakdown <YYYY-MM>` | Create a monthly breakdown report to see spending on categories based on the year and month given in the format YYYY-MM.
 | `atad-cli browse` | Launch an interactive TUI to browse transactions with 3 filtering options: 1=YYYY-MM, 2=Description, 3=Category.
 
+**Note: in order for the atad-cli command to actually work do go build -o atad-cli.exe main.go and add it to PATH**
+
 **Categorization is done automatically based on regex expressions found in Models/rules.go such as:** 
 **"Groceries": regexp.MustCompile(`(?i)(kaufland|carrefour|lidl|profi|mega|supermarket|walmart|tesco|sainsbury|asda|aldi|grocery|market|food\sstore)`)**
 
